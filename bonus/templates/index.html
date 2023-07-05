@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Encode/Decode (Bonus)</title>
+    <link href="static/style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Message Encode/Decode</h1>
+  <p>An interface for encoding and decoding messages in different formats</p>
+
+  {% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+  {% endfor %}
+
+  <form method="post">
+    <fieldset>
+      <legend>Select a mode of encoding or decoding:</legend>
+      <input type="radio" name="mode" id="base64" value="base64"
+        {% if request.form["mode"] == "base64" %} checked {% endif %}>
+      <label for="base64">Base64</label>
+      <input type="radio" name="mode" id="morse" value="morse"
+        {% if request.form["mode"] == "morse" %} checked {% endif %}>
+      <label for="morse">Morse</label>
+      <input type="radio" name="mode" id="encrypt" value="encrypt"
+        {% if request.form["mode"] == "encrypt" %} checked {% endif %}>
+      <label for="encrypt">Fernet encryption</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Select an operation:</legend>
+      <input type="radio" name="operation" id="encode" value="encode"
+        {% if request.form["operation"] == "encode" %} checked {% endif %}>
+      <label for="encode">Encode</label>
+      <input type="radio" name="operation" id="decode" value="decode"
+        {% if request.form["operation"] == "decode" %} checked {% endif %}>
+      <label for="decode">Decode</label>
+    </fieldset>
+
+    <div class="message">
+      <label for="message">Message</label>
+      <div>
+      <textarea name="message" id="message" placeholder="Message to be encoded
+        or decoded" rows=10 cols=100>{{ request.form['message'] }}</textarea>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="result">
+    <label for="result">Result</label>
+    <div>
+    <textarea id="result" rows=10 cols=100>{{ output }}</textarea>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
+
+

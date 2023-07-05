@@ -1,0 +1,29 @@
+.message {
+  padding: 10px;
+  margin: 5px;
+  background-color: #f3f3f3
+  font-size: 3em;
+}
+
+.result {
+  padding: 10px;
+  margin: 5px;
+  background-color: #f3f3f3
+  font-size: 3em;
+}
+
+.alert {
+  padding: 10px;
+  margin: 5px;
+  color: #970020;
+  background-color: #ffd5de;
+}
+
+button {
+  padding: 10px 100px;
+  margin-left: 20px;
+  background-color: skyblue;
+  font-size: 18px;
+  border-radius: 5px;
+  display: block;
+}
